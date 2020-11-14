@@ -33,16 +33,16 @@ const filterByType = (type, ...values) => values.filter(value => typeof value ==
 
 const filterButton = document.querySelector('#filter-btn'); // получаем кнопку 
 
-filterButton.addEventListener('click', e => {					// вешаем событие click на кнопку					
+filterButton.addEventListener('click', e => {	// вешаем событие click на кнопку					
 	const typeInput = document.querySelector('#type');	//	получаем select
 	const dataInput = document.querySelector('#data');	//	получаем input
 
 	if (dataInput.value === '') {													// если input пустой
 		dataInput.setCustomValidity('Поле не должно быть пустым!');		// вешаем подсказку
-		showNoResults();																							// вызываем функцию showNoResults
-	} else {																												// если input не пустой
-		dataInput.setCustomValidity('');															// убираем подсказку
-		e.preventDefault();																						// убираем событие кнопки по умолчанию
+		showNoResults();	// вызываем функцию showNoResults
+	} else {		// если input не пустой
+		dataInput.setCustomValidity('');		// убираем подсказку
+		e.preventDefault();		// убираем событие кнопки по умолчанию
 		tryFilterByType(typeInput.value.trim(), dataInput.value.trim());	// вызываем tryFilterByType и передаем значения селекта и инпута
 	}
 });
